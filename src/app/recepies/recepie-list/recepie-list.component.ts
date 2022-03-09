@@ -13,6 +13,17 @@ export class RecepieListComponent implements OnInit {
       'this is test description for test-recepie',
       'https://hindi.cdn.zeenews.com/hindi/sites/default/files/2020/09/11/637971-pjimage26.jpg'
     ),
+    new Recepie(
+      'test-recepie',
+      'this is test description for test-recepie',
+      'https://hindi.cdn.zeenews.com/hindi/sites/default/files/2020/09/11/637971-pjimage26.jpg'
+    ),
+    new Recepie(
+      'test-recepie',
+      'this is test description for test-recepie',
+      'https://hindi.cdn.zeenews.com/hindi/sites/default/files/2020/09/11/637971-pjimage26.jpg'
+    ),  
+    
   ];
   constructor() {}
 
