@@ -6,24 +6,7 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <a
-      href="#"
-      class="list-group-item clearfix"
-      *ngFor="let recepie of recepies"
-    >
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ recepie.name }}</h4>
-        <p class="list-group-item-text">{{ recepie.description }}</p>
-      </div>
-      <span class="pull-right">
-        <img
-          [src]="recepie.imagePath"
-          alt="{{recepie.name}}"
-          class="image-responsive"
-          style="max-height: 50px"
-        />
-      </span>
-    </a>
-    <app-recepie-item></app-recepie-item>
+    
+    <app-recepie-item *ngFor="let recepieEl of recepies" [recepie]="recepieEl"></app-recepie-item>
   </div>
 </div>
