@@ -11,7 +11,7 @@ export class RecepieListComponent implements OnInit {
     new Recepie(
       'test-recepie 1',
       'this is test description for test-recepie for recepie 1',
-      'https://www.westernricemills.com/uploads/1/3/1/8/131866278/cuban-style-beef-picadillo_orig.jpg'
+      'https://www.westernricemills.com/uploads/1/3/1/8/131866278/bibimbap-rice-bowl_orig.jpg'
     ),
     new Recepie(
       'test-recepie 2',

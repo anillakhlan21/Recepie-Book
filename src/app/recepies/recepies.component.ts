@@ -11,7 +11,4 @@ export class RecepiesComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  OnRecepieSelect(recepie: Recepie) {
-    this.recepieObj = recepie;
-  }
 }

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-5">
-    <app-recepie-list (recepieSelectEvent)="OnRecepieSelect($event)"></app-recepie-list>
+    <app-recepie-list (recepieSelectEvent)="recepieObj=$event"></app-recepie-list>
   </div>
   <div class="col-md-7">
     <app-recepie-detail [recepie]="recepieObj"></app-recepie-detail>
