@@ -3,6 +3,9 @@
     <app-recepie-list (recepieSelectEvent)="recepieObj=$event"></app-recepie-list>
   </div>
   <div class="col-md-7">
-    <app-recepie-detail [recepie]="recepieObj"></app-recepie-detail>
+    <app-recepie-detail [recepie]="recepieObj" *ngIf="recepieObj; else infoText"></app-recepie-detail>
+    <ng-template #infoText>
+      <p>Please select a recpie</p>
+    </ng-template>
   </div>
 </div>
