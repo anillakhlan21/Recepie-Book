@@ -6,12 +6,9 @@ import { Recepie } from '../recepie.model';
   templateUrl: './recepie-detail.component.html',
   styleUrls: ['./recepie-detail.component.css'],
 })
-export class RecepieDetailComponent implements OnInit{
+export class RecepieDetailComponent implements OnInit {
   @Input() recepie: Recepie;
   constructor() {}
   ngOnInit(): void {}
-  opened: boolean = false; 
-  
-
-   
+  opened: boolean = false;
 }
