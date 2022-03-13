@@ -9,7 +9,7 @@ import { Recepie } from '../recepie.model';
 export class RecepieDetailComponent implements OnInit {
   @Input() recepie:Recepie;
   constructor() { }
-
+  opened: boolean=false
   ngOnInit(): void {
   }
 
