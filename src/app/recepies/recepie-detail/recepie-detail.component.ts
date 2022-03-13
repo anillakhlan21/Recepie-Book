@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,} from '@angular/core';
 import { Recepie } from '../recepie.model';
 
 @Component({
@@ -9,6 +9,9 @@ import { Recepie } from '../recepie.model';
 export class RecepieDetailComponent implements OnInit {
   @Input() recepie: Recepie;
   constructor() {}
-  ngOnInit(): void {}
-  opened: boolean = false;
+  ngOnInit(): void {
+    
+  }
+  
+  
 }
