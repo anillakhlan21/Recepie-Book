@@ -4,13 +4,14 @@ import { Recepie } from '../recepie.model';
 @Component({
   selector: 'app-recepie-detail',
   templateUrl: './recepie-detail.component.html',
-  styleUrls: ['./recepie-detail.component.css']
+  styleUrls: ['./recepie-detail.component.css'],
 })
-export class RecepieDetailComponent implements OnInit {
-  @Input() recepie:Recepie;
-  constructor() { }
-  opened: boolean=false
-  ngOnInit(): void {
-  }
+export class RecepieDetailComponent implements OnInit{
+  @Input() recepie: Recepie;
+  constructor() {}
+  ngOnInit(): void {}
+  opened: boolean = false; 
+  
 
+   
 }
