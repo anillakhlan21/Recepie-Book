@@ -9,10 +9,7 @@ import { RecepieService } from '../recepies.service';
 })
 export class RecepieListComponent implements OnInit {
   recepies: Recepie[];
-  @Output() recepieSelectEvent = new EventEmitter<Recepie>();
-  onClickRecepie(recepie:Recepie){
-    this.recepieSelectEvent.emit(recepie);
-  }
+
   constructor(private recepieService:RecepieService) {}
 
   ngOnInit(): void {

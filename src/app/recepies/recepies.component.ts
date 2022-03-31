@@ -6,11 +6,14 @@ import { RecepieService } from './recepies.service';
   selector: 'app-recepies',
   templateUrl: './recepies.component.html',
   styleUrls: ['./recepies.component.css'],
-  providers:[RecepieService]
+  providers: [RecepieService],
 })
 export class RecepiesComponent implements OnInit {
-  recepieObj: Recepie;
-  constructor() {}
-
-  ngOnInit(): void {}
+  selectedRecepie: Recepie;
+  constructor(private recepieService: RecepieService) {}
+  ngOnInit(): void {
+    this.recepieService.selectedRecepie.subscribe((recepie: Recepie) => {
+      this.selectedRecepie = recepie;
+    });
+  }
 }
