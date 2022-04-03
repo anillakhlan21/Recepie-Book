@@ -11,7 +11,7 @@ import { ShoppingListService } from './shopping-list.service';
 })
 export class ShoppingListComponent implements OnInit {
   ingredients: Ingredient[];
-  
+  i : number;
   constructor(private shoppingListService: ShoppingListService) { }
   
   ngOnInit(): void {
@@ -20,6 +20,9 @@ export class ShoppingListComponent implements OnInit {
     .subscribe((ingredients: Ingredient[])=>{
       this.ingredients = ingredients;
     })
+  }
+  OnEditIngredient(i:number){
+    this.shoppingListService.ingredientEdited.emit(i);
   }
   
 }
