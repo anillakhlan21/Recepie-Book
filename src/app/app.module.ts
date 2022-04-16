@@ -10,7 +10,7 @@ import { RecepieItemComponent} from './recepies/recepie-list/recepie-item/recepi
 
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { appDropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecepieEditComponent } from './recepies/recepie-edit/recepie-edit.component';
@@ -30,7 +30,8 @@ import { RecepieEditComponent } from './recepies/recepie-edit/recepie-edit.compo
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]
