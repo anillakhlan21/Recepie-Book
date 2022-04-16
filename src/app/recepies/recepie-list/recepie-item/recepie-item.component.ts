@@ -14,5 +14,6 @@ export class RecepieItemComponent implements OnInit {
   ngOnInit(){}
   onItemSelect(recepie:Recepie){
     this.recepieService.selectedRecepie.emit(recepie);
+    this.recepieService.addNewRecepieButton.emit(false);
   }
 }

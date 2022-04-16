@@ -9,11 +9,15 @@ import { RecepieService } from '../recepies.service';
 })
 export class RecepieListComponent implements OnInit {
   recepies: Recepie[];
-
+  addNewRecepieButton: Boolean = true;
   constructor(private recepieService:RecepieService) {}
 
   ngOnInit(): void {
     this.recepies = this.recepieService.getRecepie();
     this.recepieService.recepieListChanged.subscribe((list)=> this.recepies= list);
+  }
+  OnNewRecepieClick(){
+    this.addNewRecepieButton= true;
+    this.recepieService.addNewRecepieButton.emit(this.addNewRecepieButton);
   }
 }

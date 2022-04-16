@@ -5,6 +5,7 @@ import { Recepie } from './recepie.model';
 export class RecepieService {
   selectedRecepie = new EventEmitter<Recepie>();
   recepieListChanged = new EventEmitter<Recepie[]>();
+  addNewRecepieButton =new EventEmitter<Boolean>();
   private recepies: Recepie[] = [
     new Recepie(
       'test-recepie 1',
@@ -35,8 +36,8 @@ export class RecepieService {
   getRecepie() {
     return this.recepies.slice();
   }
-  addRecepie(name:string,description:string,imageUrl:string, ingredientName:string, ingredientNumber:number){
-    this.recepies.push(new Recepie(name,description,imageUrl, [ new Ingredient(ingredientName,ingredientNumber)]));
+  addRecepie(recepie:Recepie){
+    this.recepies.push(new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount))));
     this.recepieListChanged.emit(this.recepies);
   }
 }

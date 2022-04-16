@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RecepieService } from '../recepies.service';
 
 @Component({
@@ -9,18 +9,47 @@ import { RecepieService } from '../recepies.service';
 })
 export class RecepieEditComponent implements OnInit {
   recepieForm: FormGroup;
-  constructor(private recepieService: RecepieService) { }
+  recepieIngredients: FormArray;
+  constructor(private recepieService: RecepieService, private formBuilder: FormBuilder) { 
+    this.initForm();
+  }
   ngOnInit(): void {
-    this.recepieForm = new FormGroup({
-      name :new FormControl(null,Validators.required),
-      imageUrl : new FormControl(null,Validators.required),
-      description : new FormControl(null),
-      ingredientName: new FormControl(null),
-      ingredientNumber: new FormControl(null)
-    });
+   
+    
+  }
+  private initForm(){
+      let name = '';
+      let imagePath = '';
+      let description = '';
+      var ingredients = new FormArray([this.createIngredient()]);
+
+      this.recepieForm = new FormGroup({
+        'name' :new FormControl(null,Validators.required),
+        'imagePath' : new FormControl(null,Validators.required),
+        'description' : new FormControl(null),
+        'ingredients': ingredients,
+      });
   }
   onSubmit(){
     const recepie = this.recepieForm.value;
-    this.recepieService.addRecepie(recepie.name, recepie.description, recepie.imageUrl,recepie.ingredientName,recepie.ingredientNumber);
+    // console.log(recepie);
+    this.recepieService.addRecepie(recepie);
+  }
+  
+  createIngredient():FormGroup{
+    return new FormGroup({
+      name: new FormControl(null),
+      amount: new FormControl(null)
+    })
+  
+  }
+  getFormIngredients(){
+    return this.recepieForm.get('ingredients') as FormArray;
+  }
+  onAddIngredient(){
+    this.recepieIngredients = this.getFormIngredients();
+    this.recepieIngredients.push(this.createIngredient());
+    console.log(this.recepieForm.get('ingredients'));
+    
   }
 }
