@@ -49,7 +49,7 @@ export class RecepieEditComponent implements OnInit {
   onAddIngredient(){
     this.recepieIngredients = this.getFormIngredients();
     this.recepieIngredients.push(this.createIngredient());
-    console.log(this.recepieForm.get('ingredients'));
+    // console.log(this.recepieForm.get('ingredients'));
     
   }
 }
