@@ -4,6 +4,7 @@ import { Recepie } from './recepie.model';
 
 export class RecepieService {
   selectedRecepie = new EventEmitter<Recepie>();
+  recepieListChanged = new EventEmitter<Recepie[]>();
   private recepies: Recepie[] = [
     new Recepie(
       'test-recepie 1',
@@ -33,5 +34,9 @@ export class RecepieService {
 
   getRecepie() {
     return this.recepies.slice();
+  }
+  addRecepie(name:string,description:string,imageUrl:string, ingredientName:string, ingredientNumber:number){
+    this.recepies.push(new Recepie(name,description,imageUrl, [ new Ingredient(ingredientName,ingredientNumber)]));
+    this.recepieListChanged.emit(this.recepies);
   }
 }
