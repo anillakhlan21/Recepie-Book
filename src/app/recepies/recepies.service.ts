@@ -49,8 +49,14 @@ export class RecepieService {
     this.recepies[index] = new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount)));
     console.log(this.recepies[index]);
     this.recepieListChanged.emit(this.recepies);
-    
-    
+  }
+  deleteRecepie(recepie:Recepie){
+    let index = this.recepies.findIndex((r)=> r==recepie);
+    this.recepies.splice(index,1);
+    this.addNewRecepieButton.emit(true);
+    this.recepieListChanged.emit(this.recepies);
+
+
   }
 
 }
