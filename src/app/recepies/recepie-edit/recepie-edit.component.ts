@@ -87,4 +87,7 @@ export class RecepieEditComponent implements OnInit{
     this.recepieIngredients.removeAt(i);
     this.ngOnInit();
   }
+  OnCancel(){
+    this.recepieService.addNewRecepieButton.emit(true);
+  }
 }
