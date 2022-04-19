@@ -19,5 +19,7 @@ export class RecepieListComponent implements OnInit {
   OnNewRecepieClick(){
     this.addNewRecepieButton= true;
     this.recepieService.addNewRecepieButton.emit(this.addNewRecepieButton);
+    this.recepieService.editMode =false;
+
   }
 }

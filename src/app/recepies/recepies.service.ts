@@ -6,6 +6,9 @@ export class RecepieService {
   selectedRecepie = new EventEmitter<Recepie>();
   recepieListChanged = new EventEmitter<Recepie[]>();
   addNewRecepieButton =new EventEmitter<Boolean>();
+  editableRecepie:Recepie;
+  editMode:boolean;
+
   private recepies: Recepie[] = [
     new Recepie(
       'test-recepie 1',
@@ -32,7 +35,7 @@ export class RecepieService {
       ]
     ),
   ];
-
+ 
   getRecepie() {
     return this.recepies.slice();
   }
@@ -40,4 +43,14 @@ export class RecepieService {
     this.recepies.push(new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount))));
     this.recepieListChanged.emit(this.recepies);
   }
+  EditRecepie(recepie: Recepie){
+    let index = this.recepies.findIndex((r)=> r.name===this.editableRecepie.name);
+    console.log(this.recepies[index]);
+    this.recepies[index] = new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount)));
+    console.log(this.recepies[index]);
+    this.recepieListChanged.emit(this.recepies);
+    
+    
+  }
+
 }

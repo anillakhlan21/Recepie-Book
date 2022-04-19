@@ -1,6 +1,7 @@
 import { Component, Input, OnInit,} from '@angular/core';
 import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { Recepie } from '../recepie.model';
+import { RecepieService } from '../recepies.service';
 
 @Component({
   selector: 'app-recepie-detail',
@@ -9,7 +10,7 @@ import { Recepie } from '../recepie.model';
 })
 export class RecepieDetailComponent implements OnInit {
   @Input() recepie: Recepie;
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService, private recepieService: RecepieService) {}
   ngOnInit(): void {
     
   }
@@ -19,6 +20,11 @@ export class RecepieDetailComponent implements OnInit {
         this.shoppingListService.addIngredient(ingredient);
       }
     )
+  }
+  onEditRecepie(){
+    this.recepieService.addNewRecepieButton.emit(true);
+    this.recepieService.editableRecepie = this.recepie;
+    this.recepieService.editMode = true;
   }
   
 }

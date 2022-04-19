@@ -15,7 +15,7 @@ export class RecepiesComponent implements OnInit {
   ngOnInit(): void {
     this.recepieService.selectedRecepie.subscribe((recepie: Recepie) => {
       this.selectedRecepie = recepie;
-      this.recepieService.addNewRecepieButton.subscribe((b)=> this.addNewRecepieButton = b);
     });
+    this.recepieService.addNewRecepieButton.subscribe((b)=> this.addNewRecepieButton = b);
   }
 }
