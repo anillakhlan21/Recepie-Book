@@ -19,9 +19,9 @@
         Manage Recepie <span class="caret"> </span>
       </button>
       <ul class="dropdown-menu">
-          <li><a href="#" (click)="addIngredientToSL()">Add Ingredient to Cart</a></li>
-          <li><a href="#" (click)="onEditRecepie()">Edit Recepie</a></li>
-          <li><a href="#" (click)="onDeleteRecepie()">Delete Recepie</a></li>
+          <li><a routerLink="/recepies" (click)="addIngredientToSL()" style="cursor: pointer;">Add Ingredient to Cart</a></li>
+          <li><a routerLink="/recepies" (click)="onEditRecepie()">Edit Recepie</a></li>
+          <li><a routerLink="/recepies" (click)="onDeleteRecepie()">Delete Recepie</a></li>
       </ul>
     </div>
   </div>
