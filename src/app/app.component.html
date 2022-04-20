@@ -1,9 +1,8 @@
-<app-header (fireFeature)="activeFeature($event)"></app-header>
+<app-header ></app-header>
 <div class="container">
   <div class="row">
     <div class="col-mid-12">
-      <app-recepies *ngIf="feature==='recepie'"></app-recepies>
-      <app-shopping-list *ngIf="feature==='shopping-list'"></app-shopping-list>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>
