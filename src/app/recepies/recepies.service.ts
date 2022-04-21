@@ -46,11 +46,9 @@ export class RecepieService {
     this.recepies.push(new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount))));
     this.recepieListChanged.emit(this.recepies);
   }
-  EditRecepie(recepie: Recepie){
-    let index = this.recepies.findIndex((r)=> r.name===this.editableRecepie.name);
-    console.log(this.recepies[index]);
+  EditRecepie(recepie: Recepie,index:number){
     this.recepies[index] = new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount)));
-    console.log(this.recepies[index]);
+    // console.log(this.recepies[index]);
     this.recepieListChanged.emit(this.recepies);
   }
   deleteRecepie(recepie:Recepie){

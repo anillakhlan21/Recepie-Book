@@ -21,8 +21,7 @@ export class RecepieEditComponent implements OnInit{
   ngOnInit(): void {
     // console.log(this.router.);
     this.router.params.subscribe((params:Params)=>{
-      this.index = +params['id']
-      // console.log(this.index);
+      this.index = +params['id']===NaN ? undefined : params['id'];
       this.initForm()
       
     })
@@ -34,11 +33,12 @@ export class RecepieEditComponent implements OnInit{
       let imagePath: string='';
       let description: string='';
       let ingredients = new FormArray([]);
-      console.log(this.index);
+      // console.log(this.index);
       
-      if(this.index!=undefined){
+      if(this.index!== undefined){
+        // console.log(this.index);        
         let recepie = this.recepieService.getRecepieById(this.index);
-        // console.log(recepie);
+        console.log(this.index);
         name=recepie.name;
         imagePath = recepie.imagePath;
         description = recepie.description;
@@ -54,17 +54,20 @@ export class RecepieEditComponent implements OnInit{
         'ingredients': ingredients,
       });
       
+      
      
   }
 
   onSubmit(){
-    const recepie = this.recepieForm.value;
-    // console.log(recepie);
-    if(this.recepieService.editMode){
-      this.recepieService.EditRecepie(recepie)
+    const recepie = this.recepieForm.value;    
+    if(this.index=== undefined){
+      this.recepieService.addRecepie(recepie);
+      // console.log('hello');
       
     }else{
-      this.recepieService.addRecepie(recepie);
+      this.recepieService.EditRecepie(recepie,this.index);
+      // console.log('hello123');
+
     }
   }
   createIngredient1(ingredient:Ingredient):FormGroup{

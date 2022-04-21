@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-xs-12">
-        <form [formGroup]="recepieForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="recepieForm" (ngSubmit)="onSubmit()" >
             <div class="row">
                 <div class="col-xs-12">
-                    <button class="btn btn-success">Save</button>
+                    <button class="btn btn-success" [disabled]="recepieForm.invalid">Save</button>
                     <button class="btn btn-danger" type="reset" >Cancel</button>
                 </div>
             </div>

@@ -35,7 +35,7 @@ export class ShoppingEditComponent implements OnInit {
     this.shoppingListService.updateIngredient(this.editableIngredient.index, this.form.value);
     this.AddOrUpdate = 'Add';
     this.form.reset();
-    console.log(this.shoppingListService.getIngredientList());
+    // console.log(this.shoppingListService.getIngredientList());
 
   }
   
