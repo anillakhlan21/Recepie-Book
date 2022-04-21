@@ -11,7 +11,7 @@ const appRoutes: Routes = [
     { path: 'recepies', component: RecepiesComponent, children:[
         {path: '', component: RecepieStartComponent},
         { path: 'new', component: RecepieEditComponent},
-        { path: 'edit', component: RecepieEditComponent},
+        { path: ':id/edit', component: RecepieEditComponent},
         {path: ':id', component: RecepieDetailComponent},
     ] },
     { path: 'shopping-list', component: ShoppingListComponent},

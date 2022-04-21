@@ -21,7 +21,7 @@ export class RecepieDetailComponent implements OnInit {
       this.index = +params['id'];
       this.recepie = this.recepieService.getRecepieById(this.index);
     });
-    console.log(this.index);
+    // console.log(this.index);
   }
   addIngredientToSL(){
     this.recepie.ingredients.forEach(
@@ -31,9 +31,8 @@ export class RecepieDetailComponent implements OnInit {
     )
   }
   onEditRecepie(){
-    this.recepieService.addNewRecepieButton.emit(true);
     this.recepieService.editableRecepie = this.recepie;
-    this.recepieService.editMode = true;
+    // this.recepieService.editMode = true;
   }
   onDeleteRecepie(){
     this.recepieService.deleteRecepie(this.recepie);
