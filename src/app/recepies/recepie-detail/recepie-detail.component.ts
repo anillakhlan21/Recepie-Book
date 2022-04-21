@@ -14,15 +14,14 @@ export class RecepieDetailComponent implements OnInit {
   recepie: Recepie;
   index:number
 
-  constructor(private shoppingListService: ShoppingListService, private recepieService: RecepieService, private route: ActivatedRoute) {}
+  constructor(private shoppingListService: ShoppingListService, private recepieService: RecepieService, private route: ActivatedRoute) {    
+  }
   ngOnInit(): void {
     this.route.params.subscribe((params: Params)=>{
       this.index = +params['id'];
       this.recepie = this.recepieService.getRecepieById(this.index);
-
     });
     console.log(this.index);
-    
   }
   addIngredientToSL(){
     this.recepie.ingredients.forEach(
