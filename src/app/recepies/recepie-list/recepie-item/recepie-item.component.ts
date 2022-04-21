@@ -15,6 +15,5 @@ export class RecepieItemComponent implements OnInit {
 
   ngOnInit(){
     this.recepie = this.recepieService.getRecepieById(this.index);
-
   }
 }

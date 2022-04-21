@@ -9,13 +9,7 @@ import { RecepieService } from './recepies.service';
   providers: [RecepieService],
 })
 export class RecepiesComponent implements OnInit {
-  selectedRecepie: Recepie;
-  addNewRecepieButton:Boolean = false;
   constructor(private recepieService: RecepieService) {}
   ngOnInit(): void {
-    this.recepieService.selectedRecepie.subscribe((recepie: Recepie) => {
-      this.selectedRecepie = recepie;
-    });
-    this.recepieService.addNewRecepieButton.subscribe((b)=> this.addNewRecepieButton = b);
   }
 }

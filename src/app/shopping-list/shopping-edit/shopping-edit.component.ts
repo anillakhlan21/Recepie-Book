@@ -28,24 +28,21 @@ export class ShoppingEditComponent implements OnInit {
     this.ingredient = this.form.value;
     this.shoppingListService.addIngredient(this.ingredient);
     this.form.reset();
-    
   }
 
-  UpdateIngredient(){
+  updateIngredient(){
     this.shoppingListService.updateIngredient(this.editableIngredient.index, this.form.value);
     this.AddOrUpdate = 'Add';
     this.form.reset();
-    // console.log(this.shoppingListService.getIngredientList());
-
   }
   
-  OnClear(){
+  onClear(){
     this.form.reset();
     this.AddOrUpdate = 'Add';
   }
 
-  OnDelete(){
+  onDelete(){
     this.shoppingListService.deleteIngredient(this.editableIngredient.index)
-    this.OnClear();
+    this.onClear();
   }
 }

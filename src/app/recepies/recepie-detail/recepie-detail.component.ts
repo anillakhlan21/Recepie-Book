@@ -1,6 +1,7 @@
 import { Component, Input, OnInit,} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
 import { Recepie } from '../recepie.model';
 import { RecepieService } from '../recepies.service';
@@ -23,18 +24,11 @@ export class RecepieDetailComponent implements OnInit {
     });
     // console.log(this.index);
   }
-  addIngredientToSL(){
-    this.recepie.ingredients.forEach(
-      (ingredient)=>{
-        this.shoppingListService.addIngredient(ingredient);
-      }
-    )
-  }
-  onEditRecepie(){
-    this.recepieService.editableRecepie = this.recepie;
+  onAddIngredientToSL(){
+    this.shoppingListService.addIngredients(this.recepie.ingredients)
   }
   onDeleteRecepie(){
-    this.recepieService.deleteRecepie(this.recepie);
+    this.recepieService.deleteRecepie(this.index);
   }
   
 }
