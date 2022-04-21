@@ -32,7 +32,6 @@ export class RecepieDetailComponent implements OnInit {
   }
   onEditRecepie(){
     this.recepieService.editableRecepie = this.recepie;
-    // this.recepieService.editMode = true;
   }
   onDeleteRecepie(){
     this.recepieService.deleteRecepie(this.recepie);

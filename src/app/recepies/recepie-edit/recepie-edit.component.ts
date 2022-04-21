@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Ingredient } from 'src/app/shared/ingredient.model';
@@ -14,6 +14,7 @@ export class RecepieEditComponent implements OnInit{
   recepieForm: FormGroup;
   recepieIngredients: FormArray;
   index:number;
+  // previewImagePath: string = 'https://pngimage.net/wp-content/uploads/2018/06/image-not-available-png-5-300x200.png'
   constructor(private recepieService: RecepieService, private router: ActivatedRoute) { 
     this.initForm();
     
@@ -22,15 +23,15 @@ export class RecepieEditComponent implements OnInit{
     // console.log(this.router.);
     this.router.params.subscribe((params:Params)=>{
       this.index = +params['id']===NaN ? undefined : params['id'];
-      this.initForm()
-      
+      this.initForm();
     })
+
   }
   
   
   private initForm(){
       let name: string ='';
-      let imagePath: string='';
+      let imagePath: string= '';
       let description: string='';
       let ingredients = new FormArray([]);
       // console.log(this.index);
