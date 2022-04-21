@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 import { Recepie } from '../recepie.model';
 import { RecepieService } from '../recepies.service';
 
@@ -10,9 +12,11 @@ import { RecepieService } from '../recepies.service';
 export class RecepieListComponent implements OnInit {
   recepies: Recepie[];
   addNewRecepieButton: Boolean = true;
-  constructor(private recepieService:RecepieService) {}
+  index: number;
+  constructor(private recepieService:RecepieService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.index = +this.route.snapshot.params['id'];
     this.recepies = this.recepieService.getRecepie();
     this.recepieService.recepieListChanged.subscribe((list)=> this.recepies= list);
   }
@@ -20,6 +24,5 @@ export class RecepieListComponent implements OnInit {
     this.addNewRecepieButton= true;
     this.recepieService.addNewRecepieButton.emit(this.addNewRecepieButton);
     this.recepieService.editMode =false;
-
   }
 }

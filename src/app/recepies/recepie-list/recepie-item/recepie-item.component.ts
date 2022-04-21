@@ -1,4 +1,5 @@
 import { Component, Input, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Recepie } from '../../recepie.model';
 import { RecepieService } from '../../recepies.service';
 
@@ -8,12 +9,12 @@ import { RecepieService } from '../../recepies.service';
   styleUrls: ['./recepie-item.component.css'],
 })
 export class RecepieItemComponent implements OnInit {
-  @Input() recepie: Recepie;
-  constructor(private recepieService :RecepieService) {}
+  recepie: Recepie;
+  @Input() index:number;
+  constructor(private recepieService :RecepieService, private route: ActivatedRoute) {}
 
-  ngOnInit(){}
-  onItemSelect(recepie:Recepie){
-    this.recepieService.selectedRecepie.emit(recepie);
-    this.recepieService.addNewRecepieButton.emit(false);
+  ngOnInit(){
+    this.recepie = this.recepieService.getRecepieById(this.index);
+
   }
 }

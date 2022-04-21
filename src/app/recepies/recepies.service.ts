@@ -39,6 +39,9 @@ export class RecepieService {
   getRecepie() {
     return this.recepies.slice();
   }
+  getRecepieById(index: number){
+    return this.recepies[index];
+  }
   addRecepie(recepie:Recepie){
     this.recepies.push(new Recepie(recepie.name,recepie.description,recepie.imagePath,recepie.ingredients.map((i)=>i = new Ingredient(i.name,i.amount))));
     this.recepieListChanged.emit(this.recepies);
