@@ -19,7 +19,7 @@
         Manage Recepie <span class="caret"> </span>
       </button>
       <ul class="dropdown-menu">
-          <li><a routerLink="/recepies" (click)="onAddIngredientToSL()" style="cursor: pointer;">Add Ingredient to Cart</a></li>
+          <li><a routerLink="/recepies/{{index}}" (click)="onAddIngredientToSL()" style="cursor: pointer;">Add Ingredient to Cart</a></li>
           <li><a routerLink="/recepies/{{index}}/edit" >Edit Recepie</a></li>
           <li><a routerLink="/recepies" (click)="onDeleteRecepie()">Delete Recepie</a></li>
       </ul>
