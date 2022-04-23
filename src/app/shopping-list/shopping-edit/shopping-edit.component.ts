@@ -1,5 +1,6 @@
-import { Component, ElementRef, EventEmitter, NgModule, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, NgModule, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 import { ShoppingListService } from '../shopping-list.service';
 
@@ -8,15 +9,16 @@ import { ShoppingListService } from '../shopping-list.service';
   templateUrl: './shopping-edit.component.html',
   styleUrls: ['./shopping-edit.component.css'],
 })
-export class ShoppingEditComponent implements OnInit {
+export class ShoppingEditComponent implements OnInit, OnDestroy {
   @ViewChild('f') form: NgForm;
   AddOrUpdate:string = 'Add';
+  igEditSub: Subscription
   editableIngredient: {index:number,ingDetail:Ingredient};
 
   ingredient:Ingredient;
   constructor(private shoppingListService: ShoppingListService) {}
   ngOnInit(): void {
-      this.shoppingListService.ingredientEdited.subscribe((i)=>{
+      this.igEditSub = this.shoppingListService.ingredientEdited.subscribe((i)=>{
       this.form.setValue(this.shoppingListService.getIngredient(i));
       this.AddOrUpdate = 'Update';
       this.editableIngredient ={index: i, ingDetail : this.shoppingListService.getIngredient(i)};
@@ -44,5 +46,8 @@ export class ShoppingEditComponent implements OnInit {
   onDelete(){
     this.shoppingListService.deleteIngredient(this.editableIngredient.index)
     this.onClear();
+  }
+  ngOnDestroy(): void {
+      this.igEditSub.unsubscribe();
   }
 }
