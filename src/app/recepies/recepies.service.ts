@@ -5,7 +5,6 @@ import { Recepie } from './recepie.model';
 export class RecepieService {
   selectedRecepie = new EventEmitter<Recepie>();
   recepieListChanged = new EventEmitter<Recepie[]>();
-  addNewRecepieButton =new EventEmitter<Boolean>();
 
   private recepies: Recepie[] = [
     new Recepie(
@@ -33,9 +32,16 @@ export class RecepieService {
       ]
     ),
   ];
+
+  setRecepies(recepies: Recepie[]){
+    this.recepies = recepies;
+    this.recepieListChanged.emit(this.recepies);
+    // console.log(recepies);  
+  }
  
   getRecepies() {
-    return this.recepies.slice();
+    return this.recepies;
+    
   }
   getRecepieById(index: number){
     return this.recepies[index];
@@ -51,6 +57,8 @@ export class RecepieService {
   deleteRecepie(index:number){
     this.recepies.splice(index,1);
     this.recepieListChanged.emit(this.recepies);
+    // console.log(this.recepies);
+    
   }
-
+  
 }

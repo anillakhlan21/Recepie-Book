@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { DatabseService } from "../shared/database.service";
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -6,5 +7,13 @@ import { Component } from "@angular/core";
 })
 export class HeaderComponent{
     collapsed=true
+    constructor(private dbService: DatabseService){
+    }
+    onSaveData(){
+        this.dbService.saveRecepies();
+    }
+    onFetchData(){
+        this.dbService.fetchRecepieData();
+    }
     
 }

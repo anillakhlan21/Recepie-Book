@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +18,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
 import { RecepieEditComponent } from './recepies/recepie-edit/recepie-edit.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecepieStartComponent } from './recepies/recepie-start/recepie-start.component';
+import { RecepieService } from './recepies/recepies.service';
 
 @NgModule({
   declarations: [
@@ -35,9 +38,10 @@ import { RecepieStartComponent } from './recepies/recepie-start/recepie-start.co
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, RecepieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
