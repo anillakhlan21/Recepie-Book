@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { Recepie } from '../recepies/recepie.model';
 import { RecepieService } from '../recepies/recepies.service';
 
@@ -27,6 +28,11 @@ export class DatabseService {
       .get<Recepie[]>(
         'https://recipe-book-project-e1830-default-rtdb.firebaseio.com/recepies.json'
       )
+      // .pipe(map(recepies=>{
+      //   return recepies.map(recepie=>{
+      //     return {...recepie, ingredients: recepie.ingredients ? recepie.ingredients : []};
+      //   });
+      // }))
       .subscribe(recepies => { this.recepieService.setRecepies(recepies);
         // console.log(recepies);
         
