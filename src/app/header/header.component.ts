@@ -13,7 +13,7 @@ export class HeaderComponent{
         this.dbService.saveRecepies();
     }
     onFetchData(){
-        this.dbService.fetchRecepieData();
+        this.dbService.fetchRecepieData().subscribe();
     }
     
 }
