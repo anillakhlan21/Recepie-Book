@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { map, tap } from 'rxjs';
 import { Recepie } from '../recepies/recepie.model';
 import { RecepieService } from '../recepies/recepies.service';
-
+import * as dotenv from 'dotenv';
 @Injectable({ providedIn: 'root' })
 export class DatabseService {
   constructor(
@@ -13,6 +13,8 @@ export class DatabseService {
   saveRecepies() {
     const recepies = this.recepieService.getRecepies();
     // console.log(recepies);
+    console.log(process.env);
+    
 
     this.http
       .put(
@@ -42,4 +44,6 @@ export class DatabseService {
         })
       );
   }
+
+
 }
