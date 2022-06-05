@@ -10,7 +10,7 @@ const app = express();
 app.use(requireHTTPS);
 app.use(express.static('./dist/<my-recepie-book.json>'));
 app.get("/*", function(req, res) {
-    res.sendFile("index.html", {root: "dist/<name-on-package.json>/"}
+    res.sendFile("index.html", {root: "dist/<my-recepie-book.json>/"}
   );
   });
   app.listen(process.env.PORT || 8080);
